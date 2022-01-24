@@ -1,0 +1,12 @@
+{
+	"name": "water",
+	"steps":
+	[
+		{
+			"type": "put",
+			"ingredient": "water",
+			"min_amount": 15,
+			"max_amount": 35
+		}
+	]
+}

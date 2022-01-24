@@ -1,0 +1,28 @@
+{
+	"name": "tuna salad",
+	"steps":
+	[
+		{
+			"type": "put",
+			"ingredient": "celery",
+			"min_amount": 5,
+			"max_amount": 15
+		},
+		{
+			"type": "chop",
+			"min_time": 9,
+			"max_time": 11
+		},
+		{
+			"type": "put",
+			"ingredient": "tuna",
+			"min_amount": 5,
+			"max_amount": 15
+		},
+		{
+			"type": "mix",
+			"min_time": 5,
+			"max_time": 20
+		}
+	]
+}

@@ -1,0 +1,34 @@
+{
+	"name": "veggie salad",
+	"steps":
+	[
+		{
+			"type": "put",
+			"ingredient": "carrot",
+			"min_amount": 4,
+			"max_amount": 12
+		},
+		{
+			"type": "put",
+			"ingredient": "cucumber",
+			"min_amount": 4,
+			"max_amount": 12
+		},
+		{
+			"type": "put",
+			"ingredient": "celery",
+			"min_amount": 4,
+			"max_amount": 12
+		},
+		{
+			"type": "chop",
+			"min_time": 6,
+			"max_time": 8
+		},
+		{
+			"type": "mix",
+			"min_time": 1,
+			"max_time": 15
+		}
+	]
+}

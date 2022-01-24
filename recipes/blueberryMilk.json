@@ -1,0 +1,28 @@
+{
+	"name": "blueberry milk",
+	"steps":
+	[
+		{
+			"type": "put",
+			"ingredient": "milk",
+			"min_amount": 15,
+			"max_amount": 25
+		},
+		{
+			"type": "put",
+			"ingredient": "blueberries",
+			"min_amount": 5,
+			"max_amount": 15
+		},
+		{
+			"type": "heat",
+			"min_time": 9,
+			"max_time": 14
+		},
+		{
+			"type": "mix",
+			"min_time": 1,
+			"max_time": 15
+		}
+	]
+}

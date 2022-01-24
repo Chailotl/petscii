@@ -1,0 +1,23 @@
+{
+	"name": "caramelized apple",
+	"steps":
+	[
+		{
+			"type": "put",
+			"ingredient": "apple",
+			"min_amount": 13,
+			"max_amount": 22
+		},
+		{
+			"type": "put",
+			"ingredient": "sugar",
+			"min_amount": 1,
+			"max_amount": 3
+		},
+		{
+			"type": "heat",
+			"min_time": 15,
+			"max_time": 29
+		}
+	]
+}

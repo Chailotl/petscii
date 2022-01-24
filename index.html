@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PETSCII</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+	margin: 0;
+	font-size: 14px;
+	color: #E8E6E3;
+	background-color: #181A1B;
+}
+
+button {
+	font-family: "Consolas", monospace;
+	color: #E8E6E3;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(115, 106, 94);
+    background-color: #2E3233;
+}
+button:hover {
+	background-color: rgb(44, 40, 31);
+}
+
+input, select {
+	font-family: "Consolas", monospace;
+	font-size: 14px;
+	color: #E8E6E3;
+	background-color: #181A1B;
+	border-style: solid;
+	border-color: rgb(115, 106, 94);
+}
+
+input[type=number]::-webkit-inner-spin-button {
+	display: none;
+}
+
+pre {
+	font-family: "Consolas", monospace;
+	font-size: 14px;
+	cursor: text;
+	overflow-x: auto;
+}
+
+#menu span, button, .click {
+	cursor: pointer;
+}
+
+::-webkit-scrollbar {
+	cursor: default;
+	color: #aba499;
+	background-color: #202324;
+}
+::-webkit-scrollbar-corner {
+	cursor: default;
+	background-color: #181a1b;
+}
+::-webkit-scrollbar-thumb {
+	cursor: default;
+	background-color: #454a4d;
+}
+
+.highlight {
+	background-color: #3C4144;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#menu {
+	position: fixed;
+	margin: 0;
+	background-color: #181A1B;
+}
+
+#textbox {
+	height: 40px;
+	margin: 10px 0;
+	text-align: center;
+}
+</style>
+</head>
+<body class="center">
+
+<!--
+   __
+ .' o'.
+/ o    \
+|     O|   Egg!
+\  o   /
+ '–..–'
+-->
+
+<pre id="menu" style="visibility: hidden"></pre>
+<div style="height: 90px;"></div>
+
+<div id="home" class="center">
+	<pre id="pet"></pre>
+
+	<pre id="textbox"></pre>
+	<button id="button" onclick="advance()">Open</button>
+	<div id="pet_interact" style="display: none;">
+		<button onclick="petPet()">Pet</button>
+		<button onclick="brushPet()">Brush</button>
+	</div>
+</div>
+
+<div id="pda" class="center" style="display: none;">
+	<pre id="pda_sprite"></pre>
+	<div style="width: 100%;">
+		<button id="pda_prev" style="visibility: hidden;" onclick="pdaPrevPage()">Previous page</button>
+		<button id="pda_next" style="float: right; visibility: hidden;" onclick="pdaNextPage()">Next page</button>
+	</div>
+</div>
+
+<div id="map" class="center" style="display: none;">
+	<button id="map_button" style="" onclick="">Back to the map</button>
+	<div style="max-width: 100vw;"><pre id="map_sprite" style="padding-bottom: 2em;"></pre></div>
+</div>
+
+<div id="cook" class="center" style="display: none;">
+	<div>
+	<pre id="cookbook"></pre>
+	<div style="margin-bottom: 2em; width: 100%;">
+		<button id="cook_prev" style="visibility: hidden;" onclick="cookPrevPage()">Previous page</button>
+		<button id="cook_next" style="float: right;" onclick="cookNextPage()">Next page</button>
+	</div>
+	
+	<pre class="bold">What you want to put in the pan</pre>
+	<div style="margin-bottom: 1em;">
+		<input id="cook_amount" type="number"></input>
+		<pre style="display: inline;"> dekagrams of </pre>
+		<select id="cook_ingredient">
+			<option value="water">Water</option>
+			<option value="carrot">Carrot</option>
+			<option value="cucumber">Cucumber</option>
+			<option value="celery">Celery</option>
+			<option value="potato">Potato</option>
+			<option value="apple">Apple</option>
+			<option value="blueberries">Blueberries</option>
+			<!--<option value="ham">Ham</option>-->
+			<option value="tuna">Tuna</option>
+			<option value="milk">Milk</option>
+			<option value="sugar">Sugar</option>
+		</select>
+	</div>
+	<button style="margin-bottom: 1em;" onclick="cookPut()">Put that into the pan</button>
+	
+	<pre class="bold">What is in the pan</pre>
+	<pre id="cook_inPan" style="margin-bottom: 2em; margin-left: 1em;"> </pre>
+	
+	<pre class="bold">What you can do with it</pre>
+	<div>
+		<button onclick="cookStart('chop')">Chop</button>
+		<button onclick="cookStart('mix')">Mix</button>
+		<button onclick="cookStart('heat')">Heat</button>
+		<button onclick="cookStop()">Stop</button>
+	</div>
+	<pre id="cook_action"> </pre>
+	<button onclick="cookFinish()">Put in a bowl</button>
+	<pre id="cook_results"> </pre>
+	</div>
+</div>
+
+<div id="save" class="center" style="display: none;"></div>
+
+<div id="config" class="center" style="display: none;"></div>
+
+<script type="text/javascript" src="scripts/pet.js"></script>
+<script type="text/javascript" src="scripts/game.js"></script>
+<script type="text/javascript" src="scripts/menu.js"></script>
+<script type="text/javascript" src="scripts/pda.js"></script>
+<script type="text/javascript" src="scripts/dialog.js"></script>
+<script type="text/javascript" src="scripts/cook.js"></script>
+<script>
+// DEBUG
+/*me.tabs.home = true
+game.tabs.pda = true
+game.tabs.map = true
+game.tabs.cook = true
+
+goToPlace('Lawn')
+game.state = states.finished
+
+setSprite(pet, 'pet_idle')
+textbox.style.display = 'none'
+button.style.display = 'none'
+
+updateMenu()
+menu.style.visibility = null
+//*/
+</script>
+
+</body>
+</html>

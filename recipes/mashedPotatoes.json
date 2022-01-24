@@ -1,0 +1,39 @@
+{
+	"name": "mashed potatoes",
+	"steps":
+	[
+		{
+			"type": "put",
+			"ingredient": "potato",
+			"min_amount": 15,
+			"max_amount": 25
+		},
+		{
+			"type": "chop",
+			"min_time": 3,
+			"max_time": 5
+		},
+		{
+			"type": "put",
+			"ingredient": "water",
+			"min_amount": 15,
+			"max_amount": 25
+		},
+		{
+			"type": "heat",
+			"min_time": 9,
+			"max_time": 14
+		},
+		{
+			"type": "put",
+			"ingredient": "milk",
+			"min_amount": 1,
+			"max_amount": 5
+		},
+		{
+			"type": "mix",
+			"min_time": 5,
+			"max_time": 20
+		}
+	]
+}

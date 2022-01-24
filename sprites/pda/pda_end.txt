@@ -1,0 +1,30 @@
+                  ,--------.
+,––––––––––––––––' [::::::] `––––––––––––––––.
+| ,––––––––––––––––––––––––––––––––––––––––. |
+| | END                                    | |
+| |                                        | |
+| | Hi there, if you are reading this,     | |
+| | then it is safe to say that you have   | |
+| | seen all this game has to offer. There | |
+| | was a lot more I had planned, but      | |
+| | procrastination got the better of me.  | |
+| |                                        | |
+| | I hope you had fun playing PETSCII,    | |
+| | even if I did not get to finish it in  | |
+| | time. I will continue to work on this  | |
+| | game after the game jam, so feel free  | |
+| | to follow its progress!                | |
+| |                                        | |
+| | I would like to thank Skallos for      | |
+| | helping create some of the sprites and | |
+| | pushing me to finish this game, and    | |
+| | Natalia for helping out with some of   | |
+| | the writing.                           | |
+| |                     Lots of love, Chai | |
+| |                                        | |
+| `––––––––––––––––––––––––––––––––––––––––' |
+|                __   __   __                |
+|               / /  /  \  \ \               |
+|               \ \  \__/  / /               |
+|                ‾‾        ‾‾                |
+`––––––––––––––––––––––––––––––––––––––––––––'
